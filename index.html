@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Eindhoven City Neighborhood Air Map</title>
+	<link rel="stylesheet" href="css/styles.css">
+	<link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.css">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="js/libs/jquery-3.2.1.min.js"></script>
+	<script src="js/libs/knockout-3.4.2.js"></script>
+	<script src="bootstrap-3.3.7-dist/js/bootstrap.js"></script>
+</head>
+<body>
+	<div id="modal" title="help">
+	</div>
+	<div id="controlMenu" data-bind="click: openControlPanel">&#9776; Controls</div>
+	<div id="controlPanel" class="control">
+		<a href="javascript:void(0)" class="closebtn"
+		   data-bind="click: closeControlPanel">&times;</a>
+		<input type="button" id="resetButton" class="btn btn-default btn-sm"
+		       value="Reset"
+		       data-bind="click: reset">
+		<input type="button" id="singleUpdate" class="btn btn-default btn-sm"
+		       value="Update"
+		       data-bind="click: singleUpdate">
+		<div class="form-element">
+		<label>Select Station:</label>
+		<select id="stations" data-bind="options: stationList, click: displayStation">
+		</select>
+		<label>Auto-Update:</label>
+		<input type="checkbox" id="updateCheckbox"
+		       data-bind="checked: updates, click: startUpdating">
+	</div>
+	<label>Select Filter:</label>
+	<select id="airlist" data-bind="options: airFilterList,
+	                                optionsText: 'description',
+																	optionsValue: 'level',
+																	click: updateFilter">
+	</select>
+	<input type="button" id="ozone" class="btn btn-default btn-sm"
+				 value="Display Ozone"
+				 data-bind="click: filterSelected">
+	<input type="button" id="no2" class="btn btn-default btn-sm"
+			 	 value="Display NO2"
+			 	 data-bind="click: filterSelected">
+	<input type="button" id="pm10" class="btn btn-default btn-sm"
+			 	 value="Display PM10"
+			 	 data-bind="click: filterSelected">
+	<div id="over-map" data-bind="text: levelMessage"></div>
+</div><!-- end controls -->
+		<button type="button" id="help-btn" data-bind="click: displayHelp"
+		        class="btn btn-info btn-circle btn-lg">
+						<i class="glyphicon glyphicon-plus"></i></button>
+	<div id="error">
+	</div>
+  <div id="map">
+	</div>
+	<!-- help text  -------------------------------->
+	<!-- an HTML snippet to show in help-menu -->
+	<div id="help-text">
+		<div class="modal-content">
+			<!-- will not work with knockout -->
+	<span class="close" onclick="closeHelp()">&times;</span>
+	<h4>Eindhoven City Air Measurements</h4>
+		<p>This is a map of airmeasurement stations placed in and around
+			the city of Eindhoven (situated in the southeast of the Netherlands).
+			The stations send in their data each 10 minutes.
+	                With this application you can get levels
+		        of ozone, nitrous dioxide (no2), and particulate matter of which
+			there are several sizes: 2.5 micrometer (pm25), 5 micrometer (pm5) and
+			10 micrometer (pm10) of which only pm10 is given in this map.</p>
+	    <h4>Explanation of the controls</h4>
+			<ul>
+				<li>Checkbox for Autoupdates: set an interval
+					  for updating automatically.</li>
+	    <h4>Icon usage</h4>
+	    <p>Notice there are some measuring stations that are situated
+	    near another city: Breda.</p>
+	    <ul>
+	    <li>
+	    The blue marker marks the center of the city Eindhoven.
+	    <img src="resources/blue_MarkerC.png"
+			     alt="central blue marker"/>
+	    </li>
+	    <li>
+			The green marker is for indicating low concentrations of the measured substance.
+	    <img src="resources/green_MarkerA.png"
+			     alt="small green marker"/>
+	    </li>
+	    <li>
+			The yellow marker for indicating medium levels.
+			<img src="resources/yellow_MarkerA.png"
+			     alt="small yellow marker"/>
+	    </li>
+	    <li>
+			The small red marker indicates high/unhealthy levels.
+			<img src="resources/red_MarkerA.png"
+			     alt="small red marker"/>
+	    </li>
+	    <li>
+      The small brown marker indicates a station (without further indication).
+			<img src="resources/brown_MarkerA.png"
+			     alt="small brown marker"/>
+	    </li>
+	  </ul>
+	</div>
+	</div>
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBlFW3002w-AsVeYeozuWp8ga36_eoBcNk&callback=initMap">
+	</script>
+	<script src="js/Airmeasurement.js"></script>
+	<script src="js/GoogleMap.js"></script>
+	<script src="js/Airfilter.js"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
