@@ -1,0 +1,252 @@
+html, body, #map {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.btn {
+  margin: 5px;
+  width: 80%;
+}
+
+.form-element {
+  margin: 5px;
+  padding: 2px;
+  display:block;
+  border-bottom: 1px solid gray;
+  vertical-align: middle;
+}
+
+.title {
+  border-bottom: 1px solid white;
+  bottom: 50%;
+}
+
+#top-title{
+  text-align: center;
+}
+
+#airlist{
+  max-width: 85%;
+}
+
+#infowindow{
+  width: 150px;
+  z-index: 15;
+}
+
+#controlMenu {
+  position: absolute;
+  padding: 3px;
+  top: 5%;
+  left: 10%;
+  z-index: 10;
+  font-family: "Lato", sans-serif;
+  font-size: 2em;
+}
+
+#controlMenu:hover {
+  cursor: pointer;
+  color: gray;
+}
+
+#dialog{
+  top: 5%;
+  padding: 5px;
+  background-color: ivory;
+  display: none;
+  z-index: 10;
+}
+
+#help-text{
+  display: none;
+}
+
+#over-map{
+  margin-top: 10px;
+  margin-left:5px;
+  margin-right: 5px;
+  font: 2em;
+  width: 80%;
+  background-color: ivory;
+  border: 1px solid #999;
+  text-align: center;
+  font-family: 'Roboto','sans-serif';
+}
+
+/* animate the over-map message */
+@keyframes flickerAnimation {
+  0%   { opacity:0.8; }
+  50%  { opacity:0; }
+  100% { opacity:0.8; }
+}
+@-o-keyframes flickerAnimation{
+  0%   { opacity:0.8; }
+  50%  { opacity:0; }
+  100% { opacity:0.8; }
+}
+@-moz-keyframes flickerAnimation{
+  0%   { opacity:0.8; }
+  50%  { opacity:0; }
+  100% { opacity:0.8; }
+}
+@-webkit-keyframes flickerAnimation{
+  0%   { opacity:0.8; }
+  50%  { opacity:0; }
+  100% { opacity:0.8; }
+}
+
+/* copied from www.w3schools.com */
+/* Tooltip container */
+.tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black; /* If you want dots under the hoverable text */
+}
+
+/* Tooltip text */
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    padding: 5px 0;
+    border-radius: 6px;
+
+    /* Position the tooltip text - see examples below! */
+    position: absolute;
+    z-index: 1;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+}
+
+.btn-circle {
+  position: absolute;
+  z-index: 20;
+  top: 5%;
+  right: 5%;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  padding: 6px 0;
+  font-size: 12px;
+  line-height: 1.428571429;
+  border-radius: 15px;
+}
+
+.btn-circle.btn-lg {
+  width: 50px;
+  height: 50px;
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.33;
+  border-radius: 25px;
+}
+
+/* Control Panel CSS */
+.control {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-color: gold;
+    opacity: 0.7;
+    overflow-x: hidden;
+    transition: 0.5s;
+    padding-top: 60px;
+}
+
+.control a {
+    padding: 8px 8px 8px 32px;
+    text-decoration: none;
+    font-size: 25px;
+    color: #818181;
+    display: block;
+    transition: 0.3s;
+}
+
+.control a:hover {
+    color: #f1f1f1;
+}
+
+.control .closebtn {
+    position: absolute;
+    top: 0;
+    right: 25px;
+    font-size: 36px;
+    margin-left: 50px;
+}
+
+@media screen and (max-height: 450px) {
+  .control {padding-top: 15px;}
+  .control a {font-size: 18px;}
+}
+
+/* Short Flash on click or select */
+@-webkit-keyframes demo {
+    0% {
+        background-color: Yellow;
+        opacity:1;
+    }
+    22% {
+        background-color: Yellow;
+    }
+    77% {
+        background-color: gold;
+    }
+    100% {
+        background-color: gold;
+    }
+}
+
+.flash {
+    -webkit-animation-name: demo;
+    -webkit-animation-duration: 200ms;
+    -webkit-animation-iteration-count: 1;
+    -webkit-animation-timing-function: ease-in-out;
+}
+
+/* Simple modal box adopted from www.w3schools.com */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
