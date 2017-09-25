@@ -2,7 +2,9 @@
 # Neighborhood-Air-Map
 Application for displaying air quality in and around Eindhoven.
 ## Usage
-Download the folder as a zip file and unzip then open to index.html in your browser.
+1. Download the folder as a zip file and unzip then open to index.html in your browser.
+   OR
+2. clone the repository and open the index.html file.
 ## Short explanation
 This application uses the aireas airmeasurement API to get information
 about the air quality in and around Eindhoven (situated in the North-East of the Netherlands).
